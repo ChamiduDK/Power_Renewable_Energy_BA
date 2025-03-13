@@ -1,0 +1,67 @@
+<!-- R Commander Markdown Template -->
+
+Replace with Main Title
+=======================
+
+### user
+
+### `r as.character(Sys.Date())`
+
+```{r echo=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+```{r}
+
+
+### Scatterplot Matrix: ~Cooling_Load+Glazing_Area_Distribution+Relative_Compactness+Surface_Area
+```{r}
+scatterplotMatrix(~Cooling_Load+Glazing_Area_Distribution+Relative_Compactness+Surface_Area,
+   regLine=FALSE, smooth=FALSE, diagonal=list(method="density"), data=EED)
+```
+
+
+### Histogram: Cooling_Load
+```{r}
+with(EED, Hist(Cooling_Load, groups=Orientation, scale="frequency", 
+  breaks="Sturges", col="darkgray"))
+```
+
+
+### Discrete Distribution Plot: Glazing_Area
+```{r}
+with(EED, discretePlot(Glazing_Area, scale="frequency"))
+```
+
+
+### Discrete Distribution Plot: Overall_Height
+```{r}
+with(EED, discretePlot(Overall_Height, scale="frequency"))
+```
+
+{
+### Discrete Distribution Plot: Glazing_Area
+} {
+### Discrete Distribution Plot: Overall_Height
+} {
+### Discrete Distribution Plot: Relative_Compactness
+} {
+### Discrete Distribution Plot: Roof_Area
+}```{r}
+with(EED, discretePlot(Glazing_Area, scale="frequency"))
+with(EED, discretePlot(Overall_Height, scale="frequency"))
+with(EED, discretePlot(Relative_Compactness, scale="frequency"))
+with(EED, discretePlot(Roof_Area, scale="frequency"))
+```
+
+
+### Scatterplot Matrix: ~Cooling_Load+Glazing_Area+Glazing_Area_Distribution+Heating_Load+Overall_Height+Relative_Compactness
+```{r}
+scatterplotMatrix(~Cooling_Load+Glazing_Area+Glazing_Area_Distribution+Heating_Load+Overall_Height+Relative_Compactness,
+   regLine=FALSE, smooth=FALSE, diagonal=list(method="density"), data=EED)
+```
+
